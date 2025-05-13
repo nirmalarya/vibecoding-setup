@@ -102,22 +102,32 @@ vibe-check       # Quick status
 
 ## 📁 Directory Structure
 
-\`\`\`
-~/
-├── workspace/ai-dev-setup/   # Setup files
-│   ├── scripts/             # Utility scripts
-│   ├── docs/                # Documentation
-│   └── models/              # Model configs
-├── localai-models/          # Model files (.gguf)
-├── .continue/               # Continue config
-└── .local/bin/              # Script symlinks
-\`\`\`
-
-## 🔧 Configuration Files
-
-- \`~/.continue/config.json\` - Continue.dev settings
-- \`~/.config/Code/User/settings.json\` - VS Code settings
-- \`~/.zshrc\` or \`~/.bashrc\` - Shell aliases
+```
+ai-dev-setup/
+├── .devcontainer/           # Development container configuration
+│   └── devcontainer.json    # Container configuration file
+├── .github/                 # GitHub related configurations
+│   └── workflows/           # GitHub Actions workflows
+├── scripts/                 # Utility scripts
+│   ├── docker/              # Docker related scripts
+│   │   └── nvidia.sh        # NVIDIA setup script
+│   ├── setup.sh             # General setup script
+│   └── ubuntu-setup.sh      # Ubuntu specific setup
+├── dotfiles/                # Configuration dotfiles
+│   ├── .bashrc              # Bash configuration
+│   ├── .zshrc               # Zsh configuration
+│   ├── .gitconfig           # Git configuration
+│   └── .vimrc               # Vim configuration
+├── configs/                 # Application configurations
+│   ├── vscode/              # VSCode configurations
+│   │   └── settings.json    # VSCode settings
+│   └── jupyter/             # Jupyter configurations
+│       └── jupyter_notebook_config.py
+├── environments/            # Environment definitions
+│   ├── requirements.txt     # Python package requirements
+│   └── environment.yml      # Conda environment definition
+└── README.md                # This file
+```
 
 ## 🎯 Usage Examples
 

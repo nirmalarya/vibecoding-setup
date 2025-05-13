@@ -1,190 +1,203 @@
 # AI Features Guide
 
-## Overview
+This guide provides detailed information about the AI features available in this development environment.
 
-This setup includes both local AI (Continue.dev) and cloud AI (GitHub Copilot) for maximum flexibility.
+## Local AI Models
 
-## 🤖 Local AI with Continue.dev
+### CodeLlama 7B (`codellama-7b`)
 
-### Available Models
-- **CodeLlama 7B** - Best for code generation
-- **DeepSeek R1** - Advanced reasoning
-- **Gemma 3 4B** - Balanced performance
-- **Llama 3.2 3B** - Fast responses
-- **Nomic Embed** - Code search
+**Strengths:**
+- Code completion and generation in multiple languages
+- Understanding code context and providing relevant suggestions
+- Documentation generation
+- Bug identification and fixes
 
-### Chat Interface (Cmd+L)
+**Best For:**
+- Writing new functions and classes
+- Completing repetitive code patterns
+- Generating unit tests
+- Refactoring existing code
 
-#### Context Providers
-- \`@codebase\` - Search entire project
-- \`@diff\` - Current git changes
-- \`@terminal\` - Terminal output
-- \`@docs\` - Documentation
-- \`@problems\` - VS Code problems
-- \`@folder\` - Current directory
+**Example Prompts:**
+```
+Write a function to calculate fibonacci sequence in Python
+Generate a React component for a login form
+Refactor this function to be more efficient
+Create unit tests for this class
+```
 
-#### Slash Commands
-- \`/edit\` - Edit selected code
-- \`/comment\` - Add comments
-- \`/test\` - Generate tests
-- \`/explain\` - Explain code
-- \`/refactor\` - Refactor code
-- \`/optimize\` - Optimize performance
+### DeepSeek R1 1.5B (`deepseek-r1`)
 
-#### Custom Commands
-- \`/docstring\` - Generate documentation
-- \`/debug\` - Add debug logging
-- \`/types\` - Add type annotations
-- \`/clean\` - Clean up code
+**Strengths:**
+- Logic and reasoning tasks
+- Step-by-step problem solving
+- Mathematical operations
+- Decision tree analysis
 
-## ☁️ Cloud AI with GitHub Copilot
+**Best For:**
+- Algorithm design
+- Logic puzzles
+- Data structure operations
+- Step-by-step explanations
 
-### Copilot Suggestions
-- **Tab** - Accept suggestion
-- **Esc** - Dismiss
-- **Cmd+]** - Next suggestion
-- **Cmd+[** - Previous suggestion
+**Example Prompts:**
+```
+Design an algorithm to find duplicate values in an array
+Explain how a binary search tree works
+What's the complexity analysis of this algorithm?
+How would you approach solving this problem?
+```
 
-### Copilot Chat (Cmd+I)
+### Gemma 3 4B (`gemma3-4b`)
 
-#### Agents
-- \`@workspace\` - Analyze entire codebase
-- \`@vscode\` - VS Code help
-- \`@terminal\` - Terminal assistance
+**Strengths:**
+- General knowledge
+- Conceptual explanations
+- Documentation writing
+- Project planning
 
-#### Commands
-- \`/explain\` - Explain code
-- \`/fix\` - Fix problems
-- \`/generate\` - Generate code
-- \`/tests\` - Create tests
-- \`/docs\` - Generate documentation
+**Best For:**
+- Explaining concepts
+- Generating documentation
+- Planning project architecture
+- Research assistance
 
-## 🎯 Best Practices
+**Example Prompts:**
+```
+Explain how HTTP caching works
+Create a project plan for a new web application
+What are the key concepts of reactive programming?
+Compare different database options for this use case
+```
 
-### When to Use What
+### Llama 3.2 3B (`llama32-3b`)
 
-**Use Continue.dev for:**
-- Private/sensitive code
-- Offline development
-- Custom model selection
-- Large context understanding
+**Strengths:**
+- Quick responses
+- Chat-like interactions
+- Command assistance
+- Simple explanations
 
-**Use GitHub Copilot for:**
-- General development
-- Quick suggestions
-- Complex code generation
-- Latest API knowledge
+**Best For:**
+- Command line help
+- Quick code snippets
+- Simple explanations
+- Development assistance
 
-### Effective Prompting
+**Example Prompts:**
+```
+How do I use grep to find text in files?
+Give me a quick example of a fetch request in JavaScript
+What's the syntax for a Docker volume mount?
+Explain what this regex does
+```
 
-1. **Be Specific**
-   \`\`\`
-   # Good
-   "Create a REST API endpoint for user authentication with JWT"
-   
-   # Less Good
-   "Make an API"
-   \`\`\`
+### Nomic Embed (`nomic-embed-text`)
 
-2. **Provide Context**
-   \`\`\`
-   # Good
-   "@codebase How does the auth module work with the user service?"
-   
-   # Less Good
-   "How does auth work?"
-   \`\`\`
+**Strengths:**
+- Text embeddings for code and documentation
+- Semantic search capabilities
+- Context-aware search
 
-3. **Use Examples**
-   \`\`\`
-   # Good
-   "Generate tests similar to the ones in auth.test.js"
-   
-   # Less Good
-   "Write tests"
-   \`\`\`
+**Best For:**
+- Searching across codebase
+- Finding related code snippets
+- Semantic document retrieval
+- Finding similar functions
 
-## ⚡ Keyboard Shortcuts
+## AI Integration Tools
 
-| Action | Shortcut | Tool |
-|--------|----------|------|
-| Continue Chat | Cmd+L | Continue.dev |
-| Copilot Chat | Cmd+I | GitHub Copilot |
-| Accept suggestion | Tab | Both |
-| Next suggestion | Cmd+] | Copilot |
-| Previous suggestion | Cmd+[ | Copilot |
+### Continue.dev
 
-## 🔧 Advanced Features
+Continue.dev connects to your local Ollama models and provides these key features:
 
-### Model-Specific Roles
+#### Codebase Search
+Use `@codebase` followed by your search query to find code across your project:
 
-Continue.dev assigns different models for different tasks:
-- **Inline Edit**: CodeLlama 7B
-- **Code Apply**: CodeLlama 7B  
-- **Repo Mapping**: Gemma 3 4B
-- **Auto-detect**: Llama 3.2 3B
+```
+@codebase find authentication functions
+@codebase where is the database initialized
+@codebase how does error handling work
+```
 
-### Custom Contexts
+#### Code Commands
+Continue.dev provides several slash commands for code operations:
 
-You can create custom context providers:
-\`\`\`javascript
-// In .continue/config.json
-"contextProviders": [
-  {
-    "name": "custom",
-    "params": {
-      "query": "specific files or patterns"
-    }
-  }
-]
-\`\`\`
+- `/explain` - Explain selected code in detail
+- `/refactor` - Refactor selected code
+- `/test` - Generate tests for selected code
+- `/fix` - Fix issues in selected code
+- `/document` - Generate documentation
+- `/improve` - Suggest improvements
 
-## 📈 Performance Tips
+#### Context Window
+Continue.dev automatically tracks your editing context and provides relevant suggestions based on your current work.
 
-1. **Choose the Right Model**
-   - CodeLlama for code
-   - DeepSeek for logic
-   - Llama 3.2 for speed
+#### Keyboard Shortcuts
+- `Cmd+L` - Open Continue chat
+- `Cmd+Shift+L` - Send selection to Continue
+- `Cmd+Alt+L` - Generate code in current position
 
-2. **Limit Context**
-   - Use specific paths in @codebase
-   - Clear chat history regularly
+### GitHub Copilot
 
-3. **Optimize Prompts**
-   - Start with simple queries
-   - Add detail as needed
+GitHub Copilot provides cloud-based AI assistance with these features:
 
-## 🐛 Debugging
+#### Inline Suggestions
+As you type, Copilot will suggest code completions that you can accept with `Tab`.
 
-### Continue.dev Issues
-\`\`\`bash
-# Check Ollama
-ollama list
-ollama serve
+#### Copilot Chat
+Use `Cmd+I` to open Copilot Chat with these special commands:
 
-# Check config
-cat ~/.continue/config.json
-\`\`\`
+- `@workspace` - Ask about your workspace code
+- `/fix` - Fix code issues
+- `/explain` - Explain code
+- `/tests` - Generate tests
+- `/doc` - Generate documentation
 
-### Copilot Issues
-\`\`\`bash
-# Check extensions
-code --list-extensions | grep copilot
+#### Workspace Understanding
+Copilot can understand your entire workspace context, making it useful for:
+- Understanding project architecture
+- Finding relevant files
+- Explaining relationships between components
 
-# Verify authentication
-# Sign out and back in via VS Code
-\`\`\`
+## Using AI Effectively
 
-## 🔐 Privacy Considerations
+### Best Practices
 
-**Continue.dev**
-- ✅ Runs locally
-- ✅ No telemetry
-- ✅ Code stays private
+1. **Start with local models** for code-related tasks to maintain privacy
+2. **Use Copilot** for more complex tasks that might exceed local model capabilities
+3. **Chain prompts** by building on previous responses
+4. **Be specific** about programming language, style, and patterns
+5. **Provide context** by explaining the project or problem
+6. **Review all AI-generated code** carefully before using it
 
-**GitHub Copilot**
-- ⚠️ Sends code to cloud
-- ⚠️ Uses for training (unless disabled)
-- ⚠️ Requires subscription
+### Model Selection Guide
 
-Choose based on your privacy needs!
+| Task | Recommended Model | Why |
+|------|------------------|-----|
+| Code completion | CodeLlama 7B | Specialized in code understanding |
+| Quick command help | Llama 3.2 3B | Fast responses, sufficient for simple tasks |
+| Project planning | Gemma 3 4B | Better conceptual understanding |
+| Algorithm design | DeepSeek R1 | Strong reasoning capabilities |
+| Complex systems | GitHub Copilot | Larger context window, more parameters |
+| Codebase search | Nomic Embed | Optimized for embeddings and search |
+
+### Common Workflows
+
+#### Starting a New Project
+1. Use `create-project` to scaffold the project
+2. Use Gemma 3 for architectural planning
+3. Use CodeLlama for core functionality implementation
+4. Use Copilot for complex integration challenges
+
+#### Debugging Workflow
+1. Use `/explain` to understand problematic code
+2. Use DeepSeek R1 to analyze logic issues
+3. Use `/fix` to generate potential fixes
+4. Use CodeLlama to implement and test solutions
+
+#### Learning New Technologies
+1. Use Gemma 3 to explain core concepts
+2. Use CodeLlama to generate example code
+3. Use Copilot Chat to ask follow-up questions
+4. Use local models to experiment with implementations

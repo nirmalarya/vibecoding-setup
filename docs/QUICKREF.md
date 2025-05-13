@@ -1,93 +1,141 @@
-# AI Dev Quick Reference
+# Quick Reference Guide
 
-## 🚀 Essential Commands
+## Command Line Tools
 
-\`\`\`bash
-dev-start          # Open VS Code with AI
-ai                 # Dashboard
-create-project     # New project
-vibe-check         # Quick status
-\`\`\`
+### Core Commands
 
-## ⌨️ VS Code Shortcuts
+| Command | Description | Example |
+|---------|-------------|---------|
+| `dev-start [path]` | Start VS Code with AI | `dev-start ~/projects/myapp` |
+| `create-project <name> [type]` | Create new project | `create-project myapi node` |
+| `dev-dashboard` or `ai` | Show system status | `ai` |
+| `vibe-check` | Quick environment check | `vibe-check` |
 
-| Action | Key | Description |
-|--------|-----|-------------|
-| Continue Chat | \`Cmd+L\` | Local AI chat |
-| Copilot Chat | \`Cmd+I\` | Cloud AI chat |
-| Accept | \`Tab\` | Accept suggestion |
-| Next | \`Cmd+]\` | Next suggestion |
-| Previous | \`Cmd+[\` | Previous suggestion |
+### AI Commands
 
-## 💬 AI Chat Commands
+| Command | Description | Example |
+|---------|-------------|---------|
+| `ai-help [command]` | Get help for any command | `ai-help create-project` |
+| `test-ai-models` | Test model responses | `test-ai-models` |
+| `manage-scripts` | Manage utility scripts | `manage-scripts` |
 
-### Continue.dev (Local)
-\`\`\`
-@codebase find functions
-/explain this code
-/refactor for performance
-/test this function
-/types add annotations
-\`\`\`
+### Service Commands
 
-### GitHub Copilot (Cloud)
-\`\`\`
-@workspace how does auth work?
-/fix this error
-/generate API endpoint
-/docs for this class
-\`\`\`
+| Command | Description | Example |
+|---------|-------------|---------|
+| `start-ollama` | Start Ollama service | `start-ollama` |
+| `start-localai` | Start LocalAI service | `start-localai` |
+| `ollama list` | List installed models | `ollama list` |
+| `ollama pull [model]` | Download a model | `ollama pull codellama:7b` |
+| `ollama run [model]` | Run a model | `ollama run codellama:7b` |
 
-## 🤖 Model Selection
+### Makefile Commands
 
-| Task | Model | Why |
-|------|-------|-----|
-| Code | CodeLlama 7B | Optimized for code |
-| Logic | DeepSeek R1 | Best reasoning |
-| Quick | Llama 3.2 3B | Fast responses |
-| General | Gemma 3 4B | Balanced |
+| Command | Description | Example |
+|---------|-------------|---------|
+| `make install` | Install everything | `make install` |
+| `make verify` | Verify installation | `make verify` |
+| `make models` | Install AI models | `make models` |
+| `make scripts` | Install utility scripts | `make scripts` |
+| `make vscode` | Setup VS Code | `make vscode` |
+| `make continue` | Configure Continue.dev | `make continue` |
+| `make clean` | Remove temporary files | `make clean` |
 
-## 📁 Project Types
+## VS Code Keyboard Shortcuts
 
-\`\`\`bash
-create-project my-api node
-create-project my-app react  
-create-project ml-tool python
-create-project my-svc go
-\`\`\`
+### Continue.dev (Local AI)
 
-## 🔍 Status Checks
+| Shortcut | Description |
+|----------|-------------|
+| `Cmd+L` | Open Continue chat |
+| `Cmd+Shift+L` | Send selection to Continue |
+| `Cmd+Alt+L` | Generate code in current position |
 
-\`\`\`bash
-vibe-check         # Quick overview
-ollama list        # Models loaded
-make verify        # Full check
-dev-dashboard      # Detailed status
-\`\`\`
+#### Continue Commands
 
-## 🛠️ Troubleshooting
+| Command | Description |
+|---------|-------------|
+| `@codebase [query]` | Search entire project |
+| `/explain` | Explain selected code |
+| `/refactor` | Refactor code |
+| `/test` | Generate tests |
+| `/fix` | Fix code issues |
+| `/document` | Generate documentation |
+| `/improve` | Suggest improvements |
 
-\`\`\`bash
-ollama serve       # Start Ollama
-make models        # Import models
-make symlinks      # Fix commands
-make clean         # Reset links
-\`\`\`
+### GitHub Copilot (Cloud AI)
 
-## 📚 Get Help
+| Shortcut | Description |
+|----------|-------------|
+| `Cmd+I` | Open Copilot Chat |
+| `Tab` | Accept suggestion |
+| `Cmd+]` | Next suggestion |
+| `Cmd+[` | Previous suggestion |
+| `Esc` | Dismiss suggestion |
 
-\`\`\`bash
-ai-help            # List commands
-ai-help <command>  # Command help
-man <command>      # Manual page
-\`\`\`
+#### Copilot Chat Commands
 
-## 🔐 Privacy Tips
+| Command | Description |
+|---------|-------------|
+| `@workspace [query]` | Ask about codebase |
+| `/fix` | Fix code issues |
+| `/explain` | Explain code |
+| `/tests` | Generate tests |
+| `/doc` | Generate documentation |
 
-- Use Continue for sensitive code
-- Use Copilot for general tasks
-- Check ~/.continue/config.json
-- Disable telemetry in settings
+## Model Selection Guide
 
----
-*Keep this handy for quick reference!*
+| Task | Recommended Model | Activation |
+|------|------------------|------------|
+| Code generation | `codellama-7b` | Default in VS Code |
+| Quick responses | `llama32-3b` | Default in terminal |
+| General knowledge | `gemma3-4b` | Available in Continue |
+| Complex reasoning | `deepseek-r1` | Available in Continue |
+| Code search | `nomic-embed-text` | Used automatically |
+
+## Project Types
+
+| Type | Languages | Frameworks | Command |
+|------|-----------|------------|---------|
+| `node` | JavaScript/TypeScript | Express, Node.js | `create-project myapi node` |
+| `react` | JavaScript/TypeScript | React | `create-project myapp react` |
+| `python` | Python | Flask, FastAPI | `create-project myservice python` |
+| `go` | Go | Gin, Echo | `create-project mytools go` |
+
+## Common Tasks
+
+### Testing AI Models
+
+```bash
+test-ai-models
+```
+
+This will run a standard prompt through each model and display the results for comparison.
+
+### Checking System Status
+
+```bash
+vibe-check
+```
+
+Shows:
+- Running services
+- Loaded models
+- System resources
+- Environment health
+
+### Updating Models
+
+```bash
+make models
+```
+
+Updates all AI models to the latest versions.
+
+### Getting Help
+
+```bash
+ai-help [command]
+```
+
+Provides detailed help for any command in the development environment.
