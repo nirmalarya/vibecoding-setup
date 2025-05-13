@@ -1,0 +1,85 @@
+# AI Models and Model Files
+*.gguf
+*.bin
+*.pth
+*.safetensors
+localai-models/
+models/downloaded/
+
+# Certificates and Security
+*.pem
+*.cert
+*.key
+proxy-fix-bundle/
+allCAbundle*
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+.secrets
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.continue/
+*.code-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and Debug
+logs/
+*.log
+debug/
+*.debug
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+.pytest_cache/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+.npm
+
+# Build and Distribution
+dist/
+build/
+*.egg-info/
+ai-dev-setup-*.zip
+release/
+
+# Temp Files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Ollama
+.ollama/
+ollama.log
+
+# Custom Scripts Cache
+scripts/.cache/
+scripts/temp/
+
+# GitHub Copilot
+.copilot/
+
+# Testing
+coverage/
+.coverage
+htmlcov/
+test-results/
