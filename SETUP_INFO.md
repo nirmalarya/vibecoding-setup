@@ -84,20 +84,33 @@
 ```
 ~/workspace/ai-dev-setup/
 ├── scripts/              # 15 utility scripts
+│   ├── dev-start         # VS Code launcher script
+│   ├── vibe-check        # Environment status checker
+│   ├── ai-help           # Command help utility
+│   ├── create-project    # Project scaffolding utility
+│   ├── dev-dashboard     # Development dashboard launcher
+│   └── [other scripts]   # Various utility scripts
 ├── docs/                 # Documentation
-├── models/               # Model configs
-├── Makefile             # Installation automation
-└── distribute.sh        # Package creator
+│   ├── AI_FEATURES.md    # Detailed AI usage documentation
+│   └── QUICKREF.md       # Quick reference guide
+├── models/               # Model configuration files
+│   ├── codellama.yaml    # CodeLlama model config
+│   ├── deepseek.yaml     # DeepSeek model config
+│   ├── gemma.yaml        # Gemma model config
+│   ├── llama.yaml        # Llama model config
+│   └── nomic.yaml        # Nomic Embed model config
+├── Makefile              # Installation automation
+└── distribute.sh         # Package creator
 
-~/localai-models/        # Model files (10GB+)
-├── *.gguf               # GGUF model files
-└── Modelfile-*          # Ollama configs
+~/localai-models/         # Model files (10GB+)
+├── *.gguf                # GGUF model files
+└── Modelfile-*           # Ollama configs
 
-~/.continue/             # Continue settings
-└── config.json          # Main configuration
+~/.continue/              # Continue settings
+└── config.json           # Main configuration
 
-~/.local/bin/            # Command symlinks
-└── [15 symlinks]        # Quick access commands
+~/.local/bin/             # Command symlinks
+└── [15 symlinks]         # Quick access commands
 ```
 
 ## Environment Variables
@@ -212,49 +225,22 @@ The installation process (`make install`) performs the following operations:
 
 ```
 ai-dev-setup/
-├── .devcontainer/           # Development container configuration
-│   └── devcontainer.json    # Container configuration file
-├── .github/                 # GitHub related configurations
-│   └── workflows/           # GitHub Actions workflows
-│       └── ci.yml           # CI/CD workflow definition
 ├── scripts/                 # Utility scripts
-│   ├── docker/              # Docker related scripts
-│   │   └── nvidia.sh        # NVIDIA setup script
-│   ├── setup.sh             # General setup script
-│   ├── ubuntu-setup.sh      # Ubuntu specific setup
-│   ├── macos-setup.sh       # macOS specific setup
 │   ├── dev-start            # VS Code launcher script
 │   ├── vibe-check           # Environment status checker
 │   ├── ai-help              # Command help utility
 │   ├── create-project       # Project scaffolding utility
 │   └── dev-dashboard        # Development dashboard launcher
-├── dotfiles/                # Configuration dotfiles
-│   ├── .bashrc              # Bash configuration
-│   ├── .zshrc               # Zsh configuration
-│   ├── .gitconfig           # Git configuration
-│   └── .vimrc               # Vim configuration
-├── configs/                 # Application configurations
-│   ├── vscode/              # VSCode configurations
-│   │   ├── settings.json    # VSCode settings
-│   │   └── extensions.json  # Recommended extensions
-│   ├── continue/            # Continue.dev configurations
-│   │   └── config.json      # Continue config with local models
-│   └── jupyter/             # Jupyter configurations
-│       └── jupyter_notebook_config.py
+├── docs/                    # Documentation
+│   ├── AI_FEATURES.md       # Detailed AI usage documentation
+│   └── QUICKREF.md          # Quick reference guide
 ├── models/                  # Model configuration files
 │   ├── codellama.yaml       # CodeLlama model config
 │   ├── deepseek.yaml        # DeepSeek model config
 │   ├── gemma.yaml           # Gemma model config
 │   ├── llama.yaml           # Llama model config
 │   └── nomic.yaml           # Nomic Embed model config
-├── environments/            # Environment definitions
-│   ├── requirements.txt     # Python package requirements
-│   └── environment.yml      # Conda environment definition
-├── docs/                    # Documentation
-│   ├── AI_FEATURES.md       # Detailed AI usage documentation
-│   └── QUICKREF.md          # Quick reference guide
 ├── Makefile                 # Installation and management commands
-├── SETUP_INFO.md            # This file
 └── README.md                # Main documentation file
 ```
 

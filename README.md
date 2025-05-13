@@ -103,30 +103,22 @@ vibe-check       # Quick status
 ## 📁 Directory Structure
 
 ```
-ai-dev-setup/
-├── .devcontainer/           # Development container configuration
-│   └── devcontainer.json    # Container configuration file
-├── .github/                 # GitHub related configurations
-│   └── workflows/           # GitHub Actions workflows
-├── scripts/                 # Utility scripts
-│   ├── docker/              # Docker related scripts
-│   │   └── nvidia.sh        # NVIDIA setup script
-│   ├── setup.sh             # General setup script
-│   └── ubuntu-setup.sh      # Ubuntu specific setup
-├── dotfiles/                # Configuration dotfiles
-│   ├── .bashrc              # Bash configuration
-│   ├── .zshrc               # Zsh configuration
-│   ├── .gitconfig           # Git configuration
-│   └── .vimrc               # Vim configuration
-├── configs/                 # Application configurations
-│   ├── vscode/              # VSCode configurations
-│   │   └── settings.json    # VSCode settings
-│   └── jupyter/             # Jupyter configurations
-│       └── jupyter_notebook_config.py
-├── environments/            # Environment definitions
-│   ├── requirements.txt     # Python package requirements
-│   └── environment.yml      # Conda environment definition
-└── README.md                # This file
+~/workspace/ai-dev-setup/
+├── scripts/              # 15 utility scripts
+├── docs/                 # Documentation
+├── models/               # Model configs
+├── Makefile             # Installation automation
+└── distribute.sh        # Package creator
+
+~/localai-models/        # Model files (10GB+)
+├── *.gguf               # GGUF model files
+└── Modelfile-*          # Ollama configs
+
+~/.continue/             # Continue settings
+└── config.json          # Main configuration
+
+~/.local/bin/            # Command symlinks
+└── [15 symlinks]        # Quick access commands
 ```
 
 ## 🎯 Usage Examples
