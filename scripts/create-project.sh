@@ -9,8 +9,8 @@ if [ -z "$PROJECT_NAME" ]; then
     exit 1
 fi
 
-mkdir -p ~/Projects/$PROJECT_NAME
-cd ~/Projects/$PROJECT_NAME
+mkdir -p ~/workspace/$PROJECT_NAME
+cd ~/workspace/$PROJECT_NAME
 
 case $PROJECT_TYPE in
     "node")
